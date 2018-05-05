@@ -19,7 +19,8 @@ defmodule Query do
     post_tag_fn = fn post_ids ->
       from(t in Tag,
         inner_join: pt in "post_tags", on: t.id == pt.tag_id,
-        where: pt.post_id in (^post_ids))
+        where: pt.post_id in (^post_ids),
+        select: %{t | post_id: pt.post_id})
       |> PreloadTest.Repo.all()
     end
 
@@ -31,7 +32,8 @@ defmodule Query do
     comment_tag_fn = fn post_ids ->
       from(t in Tag,
         inner_join: c in Comment, on: t.comment_id == c.id,
-        where: c.post_id in (^post_ids))
+        where: c.post_id in (^post_ids),
+        select: %{t | post_id: c.post_id})
       |> PreloadTest.Repo.all()
     end
 

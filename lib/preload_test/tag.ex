@@ -7,6 +7,8 @@ defmodule PreloadTest.Tag do
     field :tag, :string
     belongs_to :comment, PreloadTest.Comment
 
+    field :post_id, :integer, virtual: true
+
     timestamps()
   end
 
