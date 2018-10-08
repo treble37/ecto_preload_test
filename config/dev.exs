@@ -39,8 +39,6 @@ config :phoenix, :stacktrace_depth, 20
 # Configure your database
 config :preload_test, PreloadTest.Repo,
   adapter: Ecto.Adapters.Postgres,
-  username: "postgres",
-  password: "postgres",
   database: "preload_test_dev",
   hostname: "localhost",
   pool_size: 10

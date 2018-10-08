@@ -12,8 +12,6 @@ config :logger, level: :warn
 # Configure your database
 config :preload_test, PreloadTest.Repo,
   adapter: Ecto.Adapters.Postgres,
-  username: "postgres",
-  password: "postgres",
   database: "preload_test_test",
   hostname: "localhost",
   pool: Ecto.Adapters.SQL.Sandbox
